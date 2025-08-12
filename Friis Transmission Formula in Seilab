@@ -1,0 +1,44 @@
+M4 Input parameters
+
+PU dBm = input(‘Enter transmitted power in dBm: ');
+
+GtdB = input(Enter transmitter antenna gain in dBi: ');
+
+Gr_dB = input(‘Enter receiver antenna gain in dBi: ');
+
+f MHz = input('Enter carrier frequency in MHz: ');
+distance_km = input(‘Enter distance between antennas in kin: ');
+
+“/ Convert input values to linear scale
+
+Pt= 10%Pt_dBnv/10) * le-3; / Convert dBm to Watts
+Gt= 10*(Gt_dB/10):;
+
+Gr= 10*(Gr_dB/10);
+
+f= f_ MHz * 1e6; / Convert MHz to Hz
+
+4 Calculate wavelength
+= 3e8; // Speed of light in m/s
+wavelength = c/ f
+
+4 Calculate path loss (Lp) in linear scale
+Lp = (4 * %pi * distance_km * 1000 / wavelength)*?2;
+
+4 Calculate received power (Pr) in linear scale
+Pr= Pt * Gt * Gr/Lp;
+
+4 Convert received power to dBm
+Pr_dBm = 10 * log10(Pr/ le-3);
+
+1 Display the results
+
+printi(‘\n--- Results ---\n’);
+
+printf(‘Transmitted Power (Pt): %.2f dBm\n'’, Pt_dBm);
+print{(‘Transmitter Gain (Gt): %.2f dBi\n’. Gt_ dB);
+printf('Receiver Gain (Gr): %.2f dBi’, Gr_dB);
+printf(‘Frequency (f}: %.2f MHz\n', f MHz);
+printf(‘Distance (d): %.2f km\n’, distance_km);
+printf(‘Path Loss (Lp): %.2f (linear)\n’, Lp);
+printf(‘Received Power (Pr): %,2 dBm\n', Pr_ dBm);

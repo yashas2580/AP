@@ -48,3 +48,32 @@ printf('Reflector Spacing: %.3f m\n', s_ref);
 printf('Director Spacing: %.3f m\n’, s_dir);
 
 printf(‘\nNote: These are approximate values. Fine-tuning may he needed.\n');
+Result:
+
+--> exec('D:\Users\HP\Desktop\qwe.sce’, -1)
+Enter the operating frequency in MHz: 100
+--- Yagi-Uda Antenna Dimensions ---
+Operating Frequency: 100.00 MHz
+Wavelength: 3.00 m
+
+Reflector Length: 1.500 m
+
+Driven Element Length: 1.500 m
+
+Director Length: 1.410 m
+
+Reflector Spacing: 0.600 m
+
+Director Spacing: 0.900 m
+
+--- Yagi-Uda Antenna Dimensions ---
+Operating Frequency: 144.00 MHz
+Wavelength: 2.08 m
+
+Reflector Length: 1.040 m
+
+Driven Element Length: 1.040 m
+Director Length: 0.978 m
+
+Reflector Spacing: 0.416 m
+Director Spacing: 0.624 m

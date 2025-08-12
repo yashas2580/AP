@@ -1,0 +1,38 @@
+ Define parameters
+
+f= 4O0E6; H Operating frequency (Hz)
+
+c= 3E8; // Speed of light (m/s)
+
+lambda=c¢/f Wavelength (m)
+
+4 Normal made conditions: C << lambda and h << lambda
+4 C. circumference, h: pitch (spacing between turns)
+
+C_ratio = 0.2; 4 Example: Circumference is 0.2 * lambda
+
+h_ratio=0.05; Example: Pitch is 0.05 * lambda
+
+C=C _ratio * lambda; // Calculate circumference
+h=h_ratio * lambda; // Calculate pitch
+
+1/ Artenna dimensions
+radius = C / (2 * %pi); // Calculate radius
+tums = 5; 4 Number of turns (example)
+
+4 Display calculated parameters
+
+disp(['Calculated circumference (C): ', string(C), 'm']);
+disp([‘Calculated pitch (h):', string(h), ' m'J);
+disp([‘Calculated radius: ', string(radius), ' m']);
+disp(["‘Number of turns: ', String(turns)]);
+
+Result:
+
+—> exec('D:\Users\HP\Desktop\qwe.sce'’, -1)
+"Calculated circumference (C):" "0.15" "m"
+“Calculated pitch (h): " "0.0375" "im"
+"Calculated radius: " "0.0238732" "m"
+
+"Number of tums: " "5"
+

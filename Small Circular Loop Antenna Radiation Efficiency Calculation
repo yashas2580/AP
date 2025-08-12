@@ -1,0 +1,57 @@
+// Constants
+c= 3e8; // Speed of light in m/s
+mud = 4 * pi * 12-7; 4) Permeability of free space
+
+sigma_cu=5.8e7; — // Conductivity of copper (S/m)
+
+// Input parameters
+
+f= 100e6: // Frequency in Hz (e.g. 100 MHz)
+a= 0.05; // Radius of loop in meters
+r= 0.001; // Radius of wire in meters (conductor radius)
+
+Hf Derived parameters
+lambda=c/f; — // Wavelength
+omega = 2 * %pi * f; // Angular frequency
+
+// Radiation resistance (approx for small loop)
+Rr = (20 * (mu0%2) * (omega) * (a%4)) / (3 * (c%2));
+
+// Skin depth calculation
+delta = sqrt(2 / (omega * mu0 * sigma_cu));
+
+// Resistance per unit length due to skin effect
+R_per_length = 1 / (2 * %pi * r * delta * sigma_cu);
+
+// Length of conductor (circumference of loop)
+L=2 * %pi * a;
+
+// Loss resistance
+RI = R_per_length * L;
+
+// Radiation efficiency
+eta = Rr/(Rr+Rl);
+
+// Output
+
+disp("Radiation resistance (Ohms): " + string(Rr));
+disp("Loss resistance (Ohms): " + string(Rl));
+disp("Radiation efficiency: " + string(eta));
+
+Example Output (for f= 100 MHz, a=5 cm, r= 1 mm):
+e Radiation resistance ~ very small (micro-ohms range)
+
+© Loss resistance * a few ohms
+¢ Efficiency n « 1 (small loop antennas are inefficient unless optimized)
+// Radiation Pattern ofa Small Circular Loop Antenna
+theta = linspace(, %pi, 360); // Theta from 0 to pi (in radians)
+
+// Radiation pattern (normalized)
+U_theta = sin(theta).“2;
+
+// Normalize for plotting
+U_norm = U_theta / max(U_theta);
+
+/ Convert to polar coordinates for 2D plot
+polarplot(theta, U_norm)
+title("Radiation Pattern of Small Circular Loop Antenna")

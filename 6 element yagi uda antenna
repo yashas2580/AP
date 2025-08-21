@@ -1,54 +1,25 @@
-clf;
-
-ele;
-
-close;
-
-// Input: Operating frequency (MHz)
-
-H/ Output: Antenna dimensions (reflector length, director lengths, spacing,
-ff --- Input ---
-
-f = input('Enter the operating frequency in MHz: ');
-
-// --- Constants ---
-
-c = 3e8; / Speed of light (m/s)
-
-lambda = ¢/ (f*1e6); // Wavelength (m)
-
-I_ref = 0.5 * lambda; // Reflector length (approx. half wavelength)
-|_dir = 0.47 * lambda; // Director length (approx. slightly less than half wavelength)
-s_ref = 0.2 * lambda; // Reflector spacing
-
-s_dir = 0.3 * lambda; // Director spacing
-
-Uf --- Calculations -—-
-
-// Driven element length is typically lambda/2
-
-I_driven = 0.5 * lambda;
-
-// —- Display Results ---
-
-printf(‘\n--- Yagi-Uda Antenna Dimensions ---\n');
-
-printf(‘Operating Frequency: %.2f MHz\n’, f);
-
-printf(‘Wavelength: %.2f m\n’, lambda);
-
-printf(‘Reflector Length: %.3f min’, L_ref);
-
-printf(‘Driven Element Length: %.3f min’, |_driven),
-
-printf(‘Director Length: %.3f m\n’, |_dir);
-
-printf('Reflector Spacing: %.3f m\n', s_ref);
-
-printf('Director Spacing: %.3f m\n’, s_dir);
-
-printf(‘\nNote: These are approximate values. Fine-tuning may he needed.\n');
-Result:
+clf;   
+ele;  
+close; 
+f = input ('Enter the operating frequency in MHz: '); 
+c = 3e8; 
+lambda = c/ (f*1e6);   
+l_dir = 0.47 * lambda;   
+s_dir = 0.3 * lambda;      
+I_ref = 0.5 * lambda;  
+s_ref = 0.2 * lambda;  
+l_driven = 0.5 * lambda; 
+printf(‘\n--- Yagi-Uda Antenna Dimensions ---\n'); 
+printf(‘Operating Frequency: %.2f MHz\n’, f); 
+printf(‘Wavelength: %.2f m\n’, lambda); 
+printf(‘Reflector Length: %.3f min’, l_ref); 
+printf(‘Driven Element Length: %.3f min’, 
+l_driven); 
+printf(‘Director Length: %.3f m\n’, l_dir); 
+printf('Reflector Spacing: %.3f m\n', s_ref); 
+printf('Director Spacing: %.3f m\n’, s_dir); 
+printf(‘\nNote: These are approximate values. 
+Fine-tuning may he needed.\n');
 
 --> exec('D:\Users\HP\Desktop\qwe.sce’, -1)
 Enter the operating frequency in MHz: 100

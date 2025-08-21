@@ -1,44 +1,22 @@
-// Input parameters
-
-{0 = 2.4e9; 4 Center frequency in Hz (e.g., 2.4 GHz for WiFi)
-
-er=4.4; // Dielectric constant of the substrate (e.g., FR4)
-h= 1.6e-3; 4 Substrate height in meters (e.g., 1.6 mm)
-
-c= 3e8; 1 Speed of light in m/s
-
-W =1000
-
-// Calculate effective dielectric constant
-
-eff_er=(er+1)/2+ (er-1)/2*(1 +12 *h/(c/10)) 4 (0.5);
-
-// Calculate effective length
-L_eff=c/ (2 * f0 * sqrt(eff_er));
-
-// Calculate length extension
-delta_L = 0.412 * h * (eff_er + 0.3) * ((W/h) + 0.264) / ((eff_er - 0.258) * ((W/h) + 0.8));
-
-4/ Calculate the actual length of the patch
-L=L eff-2* delta_L;
-
-4 Calculate the width of the patch
-W=c/ (2 * f0 * sqrt((er + 1) / 2));
-
-// Display the results
-
-printf(” \n");
-printf{("Microstrip Antenna Design Results\n");
-printf(" \n");
-
-pnntf{("Center Frequency: %.2f GHz\n", {0 / 1e9);
-printf("Effective Dielectric Constant: %.2f\n", eff_er);
-printf(" Effective Length: %.4f mm\n", Leff * 1000);
-printf("Length Extension: %.4f mm\n", delta_L * 1000);
-printf("Patch Length (L): %.4£ mm\n", L * 1000);
-printf("Patch Width (W): %.4f mm\n", W * 1000);
-pnntf(” \n");
-
+f0 = 2.4e9; er=4.4;      h= 1.6e-3;  
+c= 3e8;  
+W =1000 
+eff_er=(er+1)/2+ (er-1)/2*(1 +12 *h/(c/10))^(-0.5); 
+L_eff=c/ (2 * f0 * sqrt(eff_er)); 
+delta_L = 0.412 * h * (eff_er + 0.3) * ((W/h) + 0.264) / 
+((eff_er - 0.258) * ((W/h) + 0.8)); 
+L = L_eff – 2 * delta_L; 
+W = c / (2 * f0 * sqrt((er + 1) / 2)); 
+printf(“---------------------------------------------------- \n"); 
+printf{("Microstrip Antenna Design Results\n"); 
+printf("-----------------------------------------------------\n"); 
+pnntf{("Center Frequency: %.2f GHz\n", f0 / 1e9); 
+printf("Effective Dielectric Constant: %.2f\n", eff_er); 
+printf(" Effective Length: %.4f mm\n", Leff * 1000); 
+printf("Length Extension: %.4f mm\n", delta_L * 1000); 
+printf("Patch Length (L): %.4£ mm\n", L * 1000); 
+printf("Patch Width (W): %.4f mm\n", W * 1000); 
+pnntf(”--------------------------------------------------- \n");
 Result:
 
 --> exec('D:\Users\HP\Desktop\qwe.sce', -1)

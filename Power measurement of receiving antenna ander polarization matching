@@ -1,35 +1,10 @@
-// Parameters
-
-Pt= 1; // Transmitted power in watts
-
-Gt = 2: // Transmitting antenna gain (unitless)
-Gr = 2; // Receiving antenna gain (unitless)
-
-f= 2¢9; // Frequency in Hz (e.g., 2 GHz)
-
-c = 3e8; // Speed of light in m/s
-
-lambda = c / f; // Wavelength
-
-R = 100; // Distance between antennas in meters
-
-// Polarization vectors (unit vectors)
-et = [1; 0]; // Transmitter polarization (e.g., horizontal)
-er = [1; 0]; // Receiver polarization (matched: also horizontal)
-
-// Compute polarization loss factor
-pol_loss = abs(et' * er)*2; // <-- fixed dot product
-
-// Friis Transmission Equation with polarization matching
-Pr= Pt * Gt * Gr * (lambda / (4 * %pi * R))*2 * pol_loss;
-
-// Display results
-disp("Received Power (W):");
+Pt= 1; 
+Gt = 2;  Gr = 2; f= 2e9;  c = 3e8;  
+lambda = c / f;   
+R = 100;  
+et = [1; 0];   
+er = [1; 0];  
+pol_loss = abs(et' * er)^2; 
+Pr= Pt * Gt * Gr * (lambda / (4 * %pi * R))^2 * pol_loss; 
+disp("Received Power (W):"); 
 disp(Pr);
-
-Result:
-
---pexec('C:\Users\LENOVO\Desktop\kumaran antenna.sce’, -1)
-
-Received Power (W): 5.699D-08
-

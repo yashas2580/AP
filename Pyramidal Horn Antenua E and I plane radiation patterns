@@ -1,15 +1,22 @@
-F = 400e6;  c = 3e8;   
-C_ratio = 0.2;    
-C = C _ratio * lambda;  
-radius = C / (2 * %pi);  
-tums = 5;  
-lambda = c / f ; 
-h_ratio = 0.05; 
-H = h_ratio * lambda;  
-disp(['Calculated circumference (C): ', string(C), 'm']); 
-disp([‘Calculated pitch (h):', string(h), ' m'J); 
-disp([‘Calculated radius: ', string(radius), ' m']); 
-disp([‘Number of turns: ', String(turns)]);
+a= 0.5;    b= 0.25;   R1 = 6;   R2 = 6;    lambda = 1;  
+theta = -90:0.1:90;  
+phi = -90:0.1:90; 
+theta_rad = theta * %pi / 180; 
+phi_rad = phi * %pi / 180; 
+E_plane = (cos(theta_rad).^2) .* (sinc(a/lambda * 
+sin(theta_rad))).^2; 
+H_plane = (cos(phi_rad).^2) .* (sinc(b/lambda * 
+sin(phi_rad))).^2; 
+subplot(2,1,1);  
+plot(theta, 10*log10(E_plane)); 
+xtitle(‘E-plane Radiation Pattern’, 'Theta(degrees)’, 
+'Amplitude (dB)’); 
+xgrid(); 
+subplot(2,1,2);  
+plot(phi, 10*log10(H_plane)); 
+xtitle('H-plane Radiation Pattern’, ‘Phi(degrees)’, 
+'Amplitude (dB)’); 
+xgrid();
 Result:
 
 B peace aS PA

@@ -1,39 +1,15 @@
-a= 0.5;    b= 0.25;   R1 = 6;   R2 = 6;    lambda = 1;  
-theta = -90:0.1:90;  
-phi = -90:0.1:90; 
-theta_rad = theta * %pi / 180; 
-phi_rad = phi * %pi / 180; 
-E_plane = (cos(theta_rad).^2) .* (sinc(a/lambda * 
-sin(theta_rad))).^2; 
-H_plane = (cos(phi_rad).^2) .* (sinc(b/lambda * 
-sin(phi_rad))).^2; 
-subplot(2,1,1);  
-plot(theta, 10*log10(E_plane)); 
-xtitle(‘E-plane Radiation Pattern’, 'Theta(degrees)’, 
-'Amplitude (dB)’); 
-xgrid(); 
-subplot(2,1,2);  
-plot(phi, 10*log10(H_plane)); 
-xtitle('H-plane Radiation Pattern’, ‘Phi(degrees)’, 
-'Amplitude (dB)’); 
+a=0.5; b=0.25; R1=6; R2=6; lambda=1;
+theta=-90:0.1:90;
+phi=-90:0.1:90;
+theta_rad=theta*%pi/180;
+phi_rad=phi*%pi/180;
+E_plane=(cos(theta_rad).^2).*(sinc(a/lambda*sin(theta_rad))).^2;
+H_plane=(cos(phi_rad).^2).*(sinc(b/lambda*sin(phi_rad))).^2;
+subplot(2,1,1);
+plot(theta,10*log10(E_plane));
+xtitle('E-plane Radiation Pattern','Theta(degrees)','Amplitude (dB)');
 xgrid();
-Result:
-
-B peace aS PA
-Eee Joos fe 2
-2/44 alOvel®
-
-2 09 3 oe
-Theta (degrews)
-plane Radiabon Pattern
-
-Ampliluce (att)
-
-tk for simul: ‘np theradiation.cutrerns .
-
-different ho.n antenna designs Remember that this : ine eae patterns. You can adjust the parameters (a, b, RI, R2, lambda) to simulate
-. $s a simplitied | .t 7 .
-
-in real-world scenarios. plitted model and more complex simulations may be needed for accurate results
-nce
-
+subplot(2,1,2);
+plot(phi,10*log10(H_plane));
+xtitle('H-plane Radiation Pattern','Phi(degrees)','Amplitude (dB)');
+xgrid();

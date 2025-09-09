@@ -1,0 +1,39 @@
+clc; clear;
+
+eta   = 0.95;
+N     = 20000;
+eps   = 1.0e-9;
+theta = linspace(eps, %pi - eps, N)';
+
+F = cos((%pi/2)*cos(theta)) ./ sin(theta);
+P = abs(F).^2;
+P = P ./ max(P);
+
+den   = inttrap(theta, P .* sin(theta));
+D_lin = 2.0 / den;
+D_dBi = 10*log10(D_lin);
+
+G_lin = eta * D_lin;
+G_dBi = 10*log10(G_lin);
+
+mprintf("Half-wave dipole analysis\n");
+mprintf("------------------------\n");
+mprintf("Efficiency (η):         %.4f\n", eta);
+mprintf("Directivity (linear):   %.6f\n", D_lin);
+mprintf("Directivity (dBi):      %.3f dBi\n", D_dBi);
+mprintf("Gain (linear):          %.6f\n", G_lin);
+mprintf("Gain (dBi):             %.3f dBi\n", G_dBi);
+mprintf("\nReference (theory):     D ≈ 1.64 (≈ 2.15 dBi) for ideal λ/2 dipole\n");
+
+
+
+Result:-
+Half-wave dipole analysis
+------------------------
+Efficiency (η):         0.9500
+Directivity (linear):   1.640922
+Directivity (dBi):      2.151 dBi
+Gain (linear):          1.558876
+Gain (dBi):             1.928 dBi
+
+Reference (theory):     D ≈ 1.64 (≈ 2.15 dBi) for ideal λ/2 dipole

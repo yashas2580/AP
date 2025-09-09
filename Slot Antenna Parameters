@@ -27,9 +27,3 @@ disp("Gain (dB) = " + string(10*log10(G)));
 
 polarplot(theta, E_norm);
 title("Slot Antenna Normalized Radiation Pattern");
-
-Results:-
-Directivity (linear) = 1.6409
-Directivity (dB) = 2.1509
-Gain (linear) = 1.6409
-Gain (dB) = 2.1509

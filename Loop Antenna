@@ -1,0 +1,32 @@
+clc; clear;
+
+c    = 3e8;
+mu0  = 4*%pi*1e-7;
+eps0 = 1/(mu0*c^2);
+
+f      = 100e6;
+lambda = c/f;
+a      = 0.01*lambda;
+N      = 1;
+I0     = 1;
+
+D_max = 1.64;
+Rr    = 320*%pi^2 * (N*%pi*a^2 / lambda^2)^2;
+Rl    = 0.1;
+e_rad = Rr / (Rr + Rl);
+G_max = e_rad * D_max;
+
+disp("Maximum Directivity (D_max): " + string(D_max));
+disp("Radiation Efficiency (e_rad): " + string(e_rad));
+disp("Maximum Gain (G_max): " + string(G_max));
+
+phi   = linspace(0, 2*%pi, 360);
+E_phi = sin(phi);
+
+polarplot(phi, abs(E_phi));
+title("Normalized Radiation Pattern of Small Loop Antenna (in loop plane)");
+
+Results:-
+Maximum Directivity (D_max): 1.64
+Radiation Efficiency (e_rad): 0.0031074
+Maximum Gain (G_max): 0.0050961

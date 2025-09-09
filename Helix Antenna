@@ -1,0 +1,47 @@
+clc; clear; clf;
+
+c      = 3e8;
+f      = 1e9;
+lambda = c/f;
+C      = lambda;
+a      = C/(2*%pi);
+alpha  = 13;
+N      = 10;
+d      = lambda/4;
+S      = N*d;
+
+k = 2*%pi/lambda;
+
+D     = 15*N*(C^2*S)/(lambda^3);
+D_dBi = 10*log10(D);
+Gain_dBi = D_dBi;
+
+theta    = 0.0001:0.001:%pi;
+E_theta  = cos((%pi/2)*cos(theta)) ./ sin(theta);
+E_norm   = E_theta/max(E_theta);
+P_theta  = E_norm.^2;
+
+mprintf("Helix Antenna Parameters:\n");
+mprintf("Frequency: %.2f GHz\n", f/1e9);
+mprintf("Wavelength: %.4f m\n", lambda);
+mprintf("Circumference: %.4f m\n", C);
+mprintf("Radius: %.4f m\n", a);
+mprintf("Number of Turns: %d\n", N);
+mprintf("Pitch Angle: %.2f degrees\n", alpha);
+mprintf("Total Length: %.4f m\n", S);
+mprintf("Directivity (linear): %.2f\n", D);
+mprintf("Directivity (dBi): %.2f dB\n", D_dBi);
+mprintf("Gain (dBi): %.2f dB\n", Gain_dBi);
+
+Results:-
+Helix Antenna Parameters:
+Frequency: 1.00 GHz
+Wavelength: 0.3000 m
+Circumference: 0.3000 m
+Radius: 0.0477 m
+Number of Turns: 10
+Pitch Angle: 13.00 degrees
+Total Length: 0.7500 m
+Directivity (linear): 375.00
+Directivity (dBi): 25.74 dB
+Gain (dBi): 25.74 dB

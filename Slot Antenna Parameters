@@ -1,0 +1,35 @@
+clc; clear; clf;
+
+lambda = 1;
+L      = lambda/2;
+theta  = 0:0.001:%pi;
+k      = 2*%pi/lambda;
+
+E_theta = cos((%pi/2)*cos(theta)) ./ sin(theta);
+E_theta(isnan(E_theta)) = 0;
+E_theta(isinf(E_theta)) = 0;
+
+E_norm = E_theta ./ max(E_theta);
+
+U     = E_norm.^2;
+Prad  = 2*%pi * inttrap(theta, U .* sin(theta));
+Umax  = max(U);
+D     = (4*%pi*Umax)/Prad;
+
+disp("Directivity (linear) = " + string(D));
+disp("Directivity (dB) = " + string(10*log10(D)));
+
+eta = 1;
+G   = eta*D;
+
+disp("Gain (linear) = " + string(G));
+disp("Gain (dB) = " + string(10*log10(G)));
+
+polarplot(theta, E_norm);
+title("Slot Antenna Normalized Radiation Pattern");
+
+Results:-
+Directivity (linear) = 1.6409
+Directivity (dB) = 2.1509
+Gain (linear) = 1.6409
+Gain (dB) = 2.1509

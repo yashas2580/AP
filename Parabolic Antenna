@@ -1,0 +1,41 @@
+clc; clear; clf;
+
+f            = 10e9;
+c            = 3e8;
+lambda       = c/f;
+d_diameter   = 1;
+eta_aperture = 0.65;
+
+gain_linear = eta_aperture * (%pi*d_diameter/lambda)^2;
+gain_dbi    = 10*log10(gain_linear);
+
+disp("--- Antenna Gain ---");
+disp("Linear Gain: " + string(gain_linear));
+disp("Gain (dBi): " + string(gain_dbi));
+
+area_physical   = %pi*(d_diameter/2)^2;
+area_effective  = eta_aperture*area_physical;
+directivity_lin = (4*%pi*area_effective)/(lambda^2);
+
+disp("--- Antenna Directivity ---");
+disp("Linear Directivity: " + string(directivity_lin));
+
+theta = -%pi/2:0.01:%pi/2;
+u     = (%pi*d_diameter/lambda)*sin(theta);
+e_pat = sin(u)./u;
+e_pat(u==0) = 1;   // handle division by zero
+
+pattern_db = 20*log10(abs(e_pat));
+
+plot(theta*180/%pi, pattern_db);
+xlabel("Angle (degrees)");
+ylabel("Normalized Power (dB)");
+title("Parabolic Antenna Radiation Pattern (E-plane)");
+
+Results:-
+--- Antenna Gain ---
+Linear Gain: 7128.0000
+Gain (dBi): 38.5300
+
+--- Antenna Directivity ---
+Linear Directivity: 7128.0000

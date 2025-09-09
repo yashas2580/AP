@@ -1,23 +1,26 @@
-Pt_dBm = input(‘Enter transmitted power in dBm: '); 
-Gt_dB = input(‘Enter transmitter antenna gain in dBi: '); 
-Gr_dB = input(‘Enter receiver antenna gain in dBi: '); 
-f_MHz = input('Enter carrier frequency in MHz: '); 
-distance_km = input(‘Enter distance between antennas 
-in km: ');                   
-Pt= 10^(Pt_dBm/10) * 1e-3;  
-Gt= 10*(Gt_dB/10);             
-f= f_ MHz * 1e6;           
-Gr= 10*(Gr_dB/10); 
-c= 3e8;              
-wavelength = c/ f; 
-Lp = (4 * %pi * distance_km * 1000 / wavelength)^2; 
-Pr = Pt * Gt * Gr/Lp; 
-Pr_dBm = 10 * log10(Pr/ 1e-3); 
-printf(‘\n--- Results ---\n’); 
-printf(‘Transmitted Power (Pt): %.2f dBm\n'’, Pt_dBm); 
-print{(‘Transmitter Gain (Gt): %.2f dBi\n’. Gt_ dB); 
-printf('Receiver Gain (Gr): %.2f dBi’, Gr_dB); 
-printf(‘Frequency (f}: %.2f MHz\n', f_MHz); 
-printf(‘Distance (d): %.2f km\n’, distance_km); 
-printf(‘Path Loss (Lp): %.2f (linear)\n’, Lp); 
-printf(‘Received Power (Pr): %,2 dBm\n', Pr_ dBm);
+clc; clear;
+
+Pt_dBm = input("Enter transmitted power in dBm: ");
+Gt_dB = input("Enter transmitter antenna gain in dBi: ");
+Gr_dB = input("Enter receiver antenna gain in dBi: ");
+f_MHz = input("Enter carrier frequency in MHz: ");
+distance_km = input("Enter distance between antennas in km: ");
+
+Pt = 10^(Pt_dBm/10) * 1e-3;
+Gt = 10^(Gt_dB/10);
+Gr = 10^(Gr_dB/10);
+f = f_MHz * 1e6;
+c = 3e8;
+wavelength = c/f;
+Lp = (4 * %pi * distance_km * 1000 / wavelength)^2;
+Pr = Pt * Gt * Gr / Lp;
+Pr_dBm = 10 * log10(Pr/1e-3);
+
+printf("\n--- Results ---\n");
+printf("Transmitted Power (Pt): %.2f dBm\n", Pt_dBm);
+printf("Transmitter Gain (Gt): %.2f dBi\n", Gt_dB);
+printf("Receiver Gain (Gr): %.2f dBi\n", Gr_dB);
+printf("Frequency (f): %.2f MHz\n", f_MHz);
+printf("Distance (d): %.2f km\n", distance_km);
+printf("Path Loss (Lp): %.2f (linear)\n", Lp);
+printf("Received Power (Pr): %.2f dBm\n", Pr_dBm);
